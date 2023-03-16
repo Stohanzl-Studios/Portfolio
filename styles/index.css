@@ -37,7 +37,15 @@ html {
 }
 
 p {
-    color: var(--alt-text-color)
+    color: var(--alt-text-color);
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+a {
+    color: var(--fill-color);
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 ul {
@@ -48,13 +56,12 @@ ul {
 h1 {
     margin: 5vh 0 2vh 0;
     font-size: 9rem;
-
-    transform: scale3d(1);
 }
 
 h2 {
     margin-top: .75vh;
     font-weight: normal;
+    font-size: 2.5rem;
 }
 
 .category-heading {
@@ -64,10 +71,22 @@ h2 {
     font-style: italic;
 }
 
+.text-container {
+    margin: auto;
+    height: fit-content;
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
 /*-------------------------------MARKERS-------------------------------*/
 .marker-line {
-    border: 4px solid var(--fill-color);
-    width: 110px;
+    border: .4vh solid var(--fill-color);
+    width: 11vh;
+
+    border-radius: 1vh;
 }
 
 /*-------------------------------HERO SECTION-------------------------------*/
@@ -154,8 +173,16 @@ h2 {
 
 #hero-right {
     padding: 10vh;
+    padding-right: 10%;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
+#hero-text {
+    flex-grow: 1;
+}
 
 @keyframes scrollingDownArrow {
     0% {
@@ -201,6 +228,31 @@ h2 {
 /*-------------------------------PROJECTS SECTION-------------------------------*/
 #projects {
     margin-top: 5vh;
-    height: 100vh;
+    height: 70vh;
     background-color: var(--secondary-color);
+
+    padding: 15vh 12.5vh;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}   
+
+#projects .text-container {
+    display: inline-flex;   
+    margin: 0;
+}
+
+#projects .text-container:last-child {
+    margin-left: auto;
+}
+
+.projects-done span {
+    
+}
+
+.projects-done p {
+    color: var(--fill-color);
+    font-size: 4rem;
+    display: inline;
 }
