@@ -47,7 +47,7 @@ let selectedPortfolio = null;
 function SelectPortfolio(category) {
     selectedPortfolio.classList.remove('active-item');
     category.classList.add('active-item');
-
+    
     document.getElementById(selectedPortfolio.getAttribute('projects')).classList.remove("active-portfolio");
     selectedPortfolio = category;
     document.getElementById(selectedPortfolio.getAttribute('projects')).classList.add("active-portfolio");
@@ -56,7 +56,6 @@ function SelectPortfolio(category) {
 document.querySelectorAll('#project-work-container .project-work').forEach(x => {
     x.addEventListener('click', (e) => {
         SelectPortfolio(e.currentTarget);
-
     });
 
     if (selectedPortfolio == null) {
@@ -70,5 +69,9 @@ document.querySelectorAll('#project-work-container .project-work').forEach(x => 
 window.addEventListener('resize', (e) => {
     if (selected != null) { // Navbar marker position
         navbarMarker.style.left = (selected.target.offsetLeft - selected.target.parentElement.offsetLeft) + selected.target.offsetWidth / 2 - navbarMarker.offsetWidth / 2 + 'px';
+    }
+
+    if(window.innerWidth < 1412) {
+        navbarMarker.style.left = (selected.parentElement.offsetLeft - selected.parentElement.offsetLeft) + selected.offsetWidth / 2 - navbarMarker.offsetWidth / 2 + 'px';
     }
 })

@@ -116,7 +116,7 @@ h2 {
 }
 
 #hero .marker-line {
-    margin-bottom: 17.5vh;
+    margin-bottom: 15vh;
 }
 
 #hero ul li {
@@ -238,7 +238,7 @@ h2 {
 
 /*-------------------------------PROJECTS SECTION-------------------------------*/
 #projects {
-    height: 85vh;
+    min-height: 85vh;
     background-color: var(--secondary-color);
 
     padding: 15vh 12.5vh 0 12.5vh;
@@ -254,6 +254,10 @@ h2 {
 #projects .text-container {
     display: inline-flex;
     margin: 0;
+}
+
+#projects-text > div:nth-child(2) > h2.category-heading {
+    display: none;
 }
 
 #projects .text-container:last-child {
@@ -312,6 +316,8 @@ h2 {
 
     background-color: var(--project-work-back);
     transition: background-color ease-in-out 0.75s, transform cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.75s;
+
+    border-radius: .5vh;
 }
 
 .project-work:hover {
@@ -365,6 +371,8 @@ h2 {
     margin-top: 25vh;
     margin-bottom: 15vh;
     text-align: center;
+
+    scale: 0.75;
 }
 
 #company-logos div {
@@ -381,8 +389,12 @@ h2 {
 
 @keyframes sectionShow {
     0% {
-        transform: translateY(-100vh);
+        transform: translateY(25%);
         opacity: -1;
+    }
+
+    75% {
+        opacity: 0.75;
     }
 
     100% {
@@ -405,20 +417,6 @@ h2 {
     justify-content: center;
 }
 
-#portfolio .portfolio-item:last-child {
-    margin-bottom: 0;
-}
-
-.item-right img {
-    float: right;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 45% 100%);
-}
-
-.item-left img {
-    float: left;
-    clip-path: polygon(0 0, 100% 0, 55% 100%, 0% 100%);
-}
-
 .portfolio-item img {
     position: relative;
     margin-left: -10vh;
@@ -426,15 +424,33 @@ h2 {
 }
 
 .portfolio-item .text-container {
+    margin-top: 20vh;
     position: relative;
     width: fit-content;
-
-    scale: 0.75;
-    margin-left: -5vh;
 
     flex-grow: 1;
     justify-self: center;
     align-self: center;
+}
+
+#portfolio .portfolio-item:last-child {
+    margin-bottom: 0;
+}
+
+.item-right .text-container {
+    padding-left: 17.5vh;
+}
+
+.item-left .text-container {
+    padding-left: 17.5vh;
+}
+
+.item-right img {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 45% 100%);
+}
+
+.item-left img {
+    clip-path: polygon(0 0, 100% 0, 55% 100%, 0% 100%);
 }
 
 .active-portfolio {
@@ -445,7 +461,164 @@ h2 {
 
 /*-------------------------------CONTACTS SECTION-------------------------------*/
 #contact {
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 10vh 15% 5vh 15%;
 
     background-color: var(--secondary-color);
+    min-height: 80vh;
+}
+
+#contact-container {
+    display: flex;
+    margin-bottom: 10vh;
+}
+
+#contact .text-container {
+    display: inline;
+    float: left;
+
+    margin-top: 0;
+    margin-left: 0;
+}
+
+#contact-form span {
+    font-size: 2rem;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+
+    font-family: 'Nunito', sans-serif;
+    color: var(--alt-text-color);
+    caret-color: var(--alt-text-color);
+    border-bottom: .2vh solid var(--alt-text-color);
+
+    font-size: 1.25rem;
+
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 99999999999999999999s ease-in-out 0s, color 999999999999999999s ease-in-out;
+}
+
+input[type='submit'] {
+    border: none;
+    border-radius: .25vh;
+    padding: 1vh;
+
+    margin-top: 2.5vh;
+    
+    background-color: var(--project-work-back);
+
+    transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275) .5s;
+
+    display: block;
+    width: 105%;
+    text-align: center;
+}
+
+input[type='submit']:hover {
+    cursor: pointer;
+    background-color: var(--dark-fill-color);
+}
+
+.disabled {
+    cursor: default;
+    background-color: var(--project-work-back);
+} 
+
+textarea {
+    margin-top: 2vh;
+    padding: 2.5%;
+
+    background-color: transparent;
+
+    font-family: 'Nunito', sans-serif;
+
+    color: var(--alt-text-color);
+    caret-color: var(--alt-text-color);
+    border: .2vh solid var(--alt-text-color);
+
+    resize: none;
+    font-size: 1.25rem;
+
+    width: 100%;
+    height: 20vh;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+    transition: background-color 99999999999999999999s ease-in-out 0s, color 999999999999999999s ease-in-out;
+}
+
+#thanks-container {
+    text-align: center;
+}
+
+#thanks-container p {
+    font-size: 1.5rem;
+    margin-top: 2vh;
+}
+
+#thanks-container ul li {
+    display: inline;
+}
+
+/*-------------------------------CONTACTS SECTION-------------------------------*/
+/*HERO*/
+@media only screen and (max-width: 1412px) {
+    #scroll-down {
+        display: none;
+    }
+
+    #hero-right {
+        margin: auto;
+    }
+
+    #navbar-container {
+        width: max-content;
+        translate: -15% 0;
+    }
+
+    #navbar-container ul li {
+        margin-right: 15%;
+    }
+
+    #hero-text {
+        margin-top: 5vh;
+        scale: 0.85;
+    }
+}
+
+/*HERO*/
+@media only screen and (max-width: 1216px) {
+    #projects-text  > div:nth-child(1) {
+        display: none;
+
+        margin: auto;
+        margin-bottom: 15vh;
+    }
+
+    #projects-text .text-container {
+        margin: auto;
+    }
 }
